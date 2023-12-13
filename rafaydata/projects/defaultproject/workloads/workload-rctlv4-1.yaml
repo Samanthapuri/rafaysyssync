@@ -1,0 +1,21 @@
+apiVersion: apps.k8smgmt.io/v3
+kind: Workload
+metadata:
+  name: workload-rctlv4-1
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      catalog: default-bitnami
+      chartName: nginx
+      chartVersion: 13.2.33
+      valuesPaths:
+      - name: file://nginx11/values.yaml
+    options:
+      maxHistory: 2
+      timeout: 1m0s
+    type: Helm
+  namespace: cert-manager
+  placement:
+    selector: rafay.dev/clusterName=eks-cluster-vijays-09032023
+  version: workload-rctlv4-1-v1

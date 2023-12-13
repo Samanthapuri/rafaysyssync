@@ -1,0 +1,19 @@
+apiVersion: apps.k8smgmt.io/v3
+kind: Workload
+metadata:
+  name: tftestworkload4
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      paths:
+      - name: file://test.yaml
+    options: {}
+    type: Yaml
+  drift:
+    action: Deny
+    enabled: true
+  namespace: demo3
+  placement:
+    selector: rafay.dev/clusterName=mkstestcluster
+  version: v0

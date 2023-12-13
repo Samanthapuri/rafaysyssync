@@ -1,0 +1,16 @@
+apiVersion: apps.k8smgmt.io/v3
+kind: Workload
+metadata:
+  name: nativeyamlupload-v2
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      paths:
+      - name: file://deploy06032023.yaml
+    options: {}
+    type: Yaml
+  namespace: testns1234
+  placement:
+    selector: rafay.dev/clusterName in (ubuntumkscluster)
+  version: nativeyamlupload-v2-v1
