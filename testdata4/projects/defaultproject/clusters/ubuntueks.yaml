@@ -9,34 +9,6 @@ spec:
     version: Latest
   cloudCredentials: vijaysrole
   config:
-    managedNodeGroups:
-    - amiFamily: Ubuntu2004
-      desiredCapacity: 1
-      iam:
-        withAddonPolicies:
-          albIngress: false
-          appMesh: false
-          autoScaler: true
-          efs: false
-          externalDNS: false
-          imageBuilder: false
-      instanceTypes:
-      - t3.xlarge
-      labels: {}
-      maxSize: 1
-      minSize: 1
-      name: ngvijayswithdate
-      privateNetworking: false
-      securityGroups:
-        attachIDs: []
-      ssh:
-        allow: true
-        publicKeyName: Akhil-key
-      tags:
-        email: vijaysamanthapuri@rafay.co
-        env: cs-demo
-      volumeEncrypted: false
-      volumeType: gp3
     metadata:
       name: ubuntueks
       region: us-west-2
