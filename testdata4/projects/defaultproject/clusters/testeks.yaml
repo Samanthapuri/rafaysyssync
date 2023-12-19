@@ -14,7 +14,7 @@ spec:
       version: latest
     managedNodeGroups:
     - amiFamily: AmazonLinux2
-      desiredCapacity: 1
+      desiredCapacity: 2
       iam:
         withAddonPolicies:
           albIngress: false
@@ -26,7 +26,7 @@ spec:
       instanceTypes:
       - t3.xlarge
       labels: {}
-      maxSize: 1
+      maxSize: 2
       minSize: 1
       name: ngvijayswithdate
       privateNetworking: false
