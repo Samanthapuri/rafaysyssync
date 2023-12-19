@@ -37,6 +37,22 @@ spec:
         env: cs-demo
       volumeEncrypted: false
       volumeType: gp3
+    - amiFamily: AmazonLinux2
+      desiredCapacity: 2
+      iam:
+        withAddonPolicies:
+          autoScaler: true
+          imageBuilder: true
+      instanceTypes:
+      - t3.xlarge
+      maxSize: 2
+      minSize: 2
+      name: newng
+      tags:
+        email: vijaysamanthapuri@rafay.co
+        env: cs-demo
+      volumeSize: 80
+      volumeType: gp3
     metadata:
       name: testeks
       region: us-west-2
