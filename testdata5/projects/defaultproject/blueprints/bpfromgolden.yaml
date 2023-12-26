@@ -8,9 +8,13 @@ spec:
     name: goldenbp
     version: v3
   defaultAddons:
-    enableIngress: false
+    enableIngress: true
     enableMonitoring: true
   driftWebhook:
     enabled: true
+  opaPolicy:
+    profile:
+      name: default
+      version: latest
   type: custom
-  version: v6
+  version: v7
