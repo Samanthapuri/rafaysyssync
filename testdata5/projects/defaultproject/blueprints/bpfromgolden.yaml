@@ -6,18 +6,15 @@ metadata:
 spec:
   base:
     name: goldenbp
-    version: v2
+    version: v3
   defaultAddons:
-    enableIngress: false
+    enableIngress: true
     enableMonitoring: true
   driftWebhook:
     enabled: true
   opaPolicy:
-    opaPolicy:
-    - name: testpolicy
-      version: v1
     profile:
       name: default
       version: latest
   type: custom
-  version: v2
+  version: v3
