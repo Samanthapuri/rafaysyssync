@@ -12,9 +12,5 @@ spec:
     enableMonitoring: true
   driftWebhook:
     enabled: true
-  opaPolicy:
-    profile:
-      name: default
-      version: latest
   type: custom
-  version: v7
+  version: v8
