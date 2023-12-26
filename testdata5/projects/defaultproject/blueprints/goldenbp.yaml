@@ -13,11 +13,8 @@ spec:
   driftWebhook:
     enabled: true
   opaPolicy:
-    opaPolicy:
-    - name: testpolicy
-      version: v1
     profile:
       name: default
       version: latest
   type: golden
-  version: v2
+  version: v3
