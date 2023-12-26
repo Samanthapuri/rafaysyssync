@@ -17,4 +17,4 @@ spec:
       name: default
       version: latest
   type: custom
-  version: v4
+  version: v5
