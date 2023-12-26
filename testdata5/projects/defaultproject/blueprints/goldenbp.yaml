@@ -14,10 +14,10 @@ spec:
     enabled: true
   opaPolicy:
     opaPolicy:
-    - name: policy-privileged
-      version: version-1702705950
+    - name: testpolicy
+      version: v1
     profile:
       name: default
       version: latest
   type: golden
-  version: v1
+  version: v2
