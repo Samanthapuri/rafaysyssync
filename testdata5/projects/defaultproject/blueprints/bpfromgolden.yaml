@@ -1,0 +1,41 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Blueprint
+metadata:
+  name: bpfromgolden
+  project: defaultproject
+spec:
+  base:
+    name: testgolden
+    version: v1
+  customAddons:
+  - name: vault
+    version: v1
+  - dependsOn:
+    - vault
+    name: openebs-custom
+    version: v1
+  - dependsOn:
+    - vault
+    - openebs-custom
+    name: nginx
+    version: v1
+  - dependsOn:
+    - vault
+    - openebs-custom
+    - nginx
+    name: metallbyaml-addon
+    version: v1
+  - dependsOn:
+    - vault
+    - openebs-custom
+    - nginx
+    - metallbyaml-addon
+    name: hello-world
+    version: "1"
+  defaultAddons:
+    enableIngress: true
+    enableMonitoring: true
+  driftWebhook:
+    enabled: true
+  type: custom
+  version: v1
