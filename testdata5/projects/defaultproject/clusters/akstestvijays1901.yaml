@@ -5,7 +5,8 @@ metadata:
   project: defaultproject
 spec:
   blueprintConfig:
-    name: minimal
+    name: aks-cilium
+    version: v1
   cloudCredentials: akscreds
   config:
     kind: aksClusterConfig
