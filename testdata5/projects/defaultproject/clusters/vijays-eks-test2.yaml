@@ -9,6 +9,9 @@ spec:
     version: 2.2.0
   cloudCredentials: vijaysrole
   config:
+    addons:
+    - name: aws-ebs-csi-driver
+      version: latest
     iam:
       serviceAccounts:
       - metadata:
