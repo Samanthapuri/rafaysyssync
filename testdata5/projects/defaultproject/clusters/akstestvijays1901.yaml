@@ -1,7 +1,7 @@
 apiVersion: infra.k8smgmt.io/v3
 kind: Cluster
 metadata:
-  name: akstestvijays
+  name: akstestvijays1901
   project: defaultproject
 spec:
   blueprintConfig:
@@ -10,7 +10,7 @@ spec:
   config:
     kind: aksClusterConfig
     metadata:
-      name: akstestvijays
+      name: akstestvijays1901
     spec:
       managedCluster:
         apiVersion: "2022-07-01"
@@ -20,11 +20,14 @@ spec:
         properties:
           apiServerAccessProfile:
             enablePrivateCluster: true
-          dnsPrefix: akstestvijays-dns
+          dnsPrefix: akstestvijays1901-dns
           kubernetesVersion: 1.27.7
           networkProfile:
+            dnsServiceIP: 10.0.0.10
+            dockerBridgeCidr: 172.17.0.1/16
             loadBalancerSku: standard
-            networkPlugin: kubenet
+            networkPlugin: azure
+            serviceCidr: 10.0.0.0/16
         sku:
           name: Basic
           tier: Free
