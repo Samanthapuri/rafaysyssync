@@ -38,11 +38,11 @@ spec:
         location: centralindia
         name: primary
         properties:
-          count: 1
+          count: 2
           enableAutoScaling: true
-          maxCount: 1
+          maxCount: 2
           maxPods: 110
-          minCount: 1
+          minCount: 2
           mode: System
           orchestratorVersion: 1.27.7
           osType: Linux
