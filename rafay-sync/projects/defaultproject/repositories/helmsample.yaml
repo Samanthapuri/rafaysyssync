@@ -1,0 +1,15 @@
+apiVersion: integrations.k8smgmt.io/v3
+kind: Repository
+metadata:
+  name: helmsample
+  project: defaultproject
+spec:
+  agents:
+  - name: mksagent
+  credentials:
+    password: sealed://credentials.password
+    username: samanthapuri
+  endpoint: https://github.com/Samanthapuri/helloworld.git
+  secret:
+    name: file://artifacts/helmsample/sealed-secret.yaml
+  type: Git

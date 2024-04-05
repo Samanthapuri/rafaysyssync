@@ -1,0 +1,15 @@
+apiVersion: integrations.k8smgmt.io/v3
+kind: Repository
+metadata:
+  name: systemsync
+  project: defaultproject
+spec:
+  agents:
+  - name: eksagent1
+  credentials:
+    password: sealed://credentials.password
+    username: vijaysamanthapuri@gmail.com
+  endpoint: https://github.com/Samanthapuri/rafaysyssync.git
+  secret:
+    name: file://artifacts/systemsync/sealed-secret.yaml
+  type: Git

@@ -1,0 +1,14 @@
+apiVersion: integrations.k8smgmt.io/v3
+kind: Repository
+metadata:
+  name: myrepo
+  project: defaultproject
+spec:
+  agents:
+  - {}
+  credentials:
+    privateKey: sealed://credentials.privateKey
+  endpoint: git@bitbucket.org:vijaysamanthapuri/testvijaysrepo.git
+  secret:
+    name: file://artifacts/myrepo/sealed-secret.yaml
+  type: Git
