@@ -19,3 +19,13 @@ spec:
       systemToGitSync: true
     name: systemsync
     type: SystemSync
+  triggers:
+  - config:
+      repo:
+        paths:
+        - name: prod-sync/
+        provider: Github
+        repository: systemsync
+        revision: master
+    name: prod-webhook
+    type: Webhook
