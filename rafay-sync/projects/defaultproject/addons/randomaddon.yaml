@@ -1,0 +1,14 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  name: randomaddon
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      paths:
+      - name: file://artifacts/randomaddon/deploy.yaml
+    type: Yaml
+  namespace: randomnamespace
+  sharing: {}
+  version: v2

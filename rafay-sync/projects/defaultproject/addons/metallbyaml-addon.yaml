@@ -1,0 +1,14 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  name: metallbyaml-addon
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      paths:
+      - name: file://artifacts/metallbyaml-addon/chart.yaml
+    type: Yaml
+  namespace: nginx
+  sharing: {}
+  version: v1

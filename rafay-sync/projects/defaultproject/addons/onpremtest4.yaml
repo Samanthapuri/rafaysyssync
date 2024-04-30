@@ -1,0 +1,15 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  name: onpremtest4
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      paths:
+      - name: file://busybox.yaml
+    options: {}
+    type: Yaml
+  namespace: kube-system
+  sharing: {}
+  version: v1.0

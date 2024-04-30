@@ -1,0 +1,15 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  name: nginx-latest
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      catalog: default-helm
+      chartName: ingress-nginx
+      chartVersion: 4.8.3
+    type: Helm
+  namespace: onpremtest
+  sharing: {}
+  version: v1

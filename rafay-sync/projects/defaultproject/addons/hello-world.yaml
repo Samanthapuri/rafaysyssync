@@ -1,0 +1,15 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  name: hello-world
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      paths:
+      - name: file://artifacts/hello-world/deployment.yaml
+    options: {}
+    type: Yaml
+  namespace: tests
+  sharing: {}
+  version: v4

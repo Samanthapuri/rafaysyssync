@@ -1,0 +1,15 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  name: nginx
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      chartName: nginx-ingress
+      chartVersion: 0.16.2
+      repository: nginx
+    type: Helm
+  namespace: testns
+  sharing: {}
+  version: v2

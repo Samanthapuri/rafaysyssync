@@ -1,0 +1,13 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  name: onpremtest3
+  project: defaultproject
+spec:
+  artifact:
+    artifact: {}
+    options: {}
+    type: Yaml
+  namespace: kube-system
+  sharing: {}
+  version: v1.0

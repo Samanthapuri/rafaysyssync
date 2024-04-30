@@ -1,0 +1,14 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  name: v2-infra
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      chartPath:
+        name: file://artifacts/v2-infra/chaos-mesh-2.6.3.tgz
+    type: Helm
+  namespace: cilium
+  sharing: {}
+  version: v1

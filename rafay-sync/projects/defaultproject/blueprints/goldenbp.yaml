@@ -1,0 +1,20 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Blueprint
+metadata:
+  name: goldenbp
+  project: defaultproject
+spec:
+  base:
+    name: default
+    version: 2.2.0
+  defaultAddons:
+    enableIngress: true
+    enableMonitoring: true
+  driftWebhook:
+    enabled: true
+  opaPolicy:
+    profile:
+      name: default
+      version: latest
+  type: golden
+  version: v17

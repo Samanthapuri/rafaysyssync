@@ -1,0 +1,19 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  name: dhsjhasj
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      configmap:
+        name: file://dhsjhasj/alertmanager-configMap.yaml
+      configuration:
+        name: file://dhsjhasj/alertmanager-configuration.yaml
+      secret:
+        name: file://dhsjhasj/alertmanager-secret.yaml
+      statefulset:
+        name: file://dhsjhasj/alertmanager-statefulSet.yaml
+    type: AlertManager
+  sharing: {}
+  version: v1
