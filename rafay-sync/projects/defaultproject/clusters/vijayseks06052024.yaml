@@ -1,0 +1,151 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Cluster
+metadata:
+  name: vijayseks06052024
+  project: defaultproject
+spec:
+  blueprintConfig:
+    name: minimal
+  cloudCredentials: vijaysrole
+  config:
+    addons:
+    - name: aws-ebs-csi-driver
+      serviceAccountRoleARN: arn:aws:iam::679196758854:role/ebscsicontrollervijaysrole23
+      version: v1.30.0-eksbuild.1
+    - name: coredns
+      version: v1.11.1-eksbuild.8
+    - name: kube-proxy
+      version: v1.29.3-eksbuild.2
+    - name: vpc-cni
+      serviceAccountRoleARN: arn:aws:iam::679196758854:role/vijaysvpccnirole23
+      version: v1.18.1-eksbuild.1
+    availabilityZones:
+    - us-west-2b
+    - us-west-2a
+    - us-west-2c
+    iam:
+      serviceAccounts:
+      - attachRoleARN: arn:aws:iam::679196758854:role/vijaysvpccnirole23
+        metadata:
+          labels:
+            app.kubernetes.io/instance: aws-vpc-cni
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/name: aws-node
+            app.kubernetes.io/version: v1.18.1
+            helm.sh/chart: aws-vpc-cni-1.18.1
+            k8s-app: aws-node
+          name: aws-node
+          namespace: kube-system
+        tags:
+          alpha.rafay.io/cluster-name: vijayseks06052024
+          alpha.rafay.io/iamserviceaccount-name: kube-system/aws-node
+          alpha.rafay.io/rafay-version: v2.5.0-1
+          alpha.rafay.io/stack-uuid: 2l8gp7k-cluster-99ed4c99-97d1-4e4e-82e2-e021af9c0308
+          email: vijaysamanthapuri@rafay.co
+          env: cs-demo
+          rafay.cluster.k8s.io/v1alpha1/cluster-name: vijayseks06052024
+      - attachRoleARN: arn:aws:iam::679196758854:role/ebscsicontrollervijaysrole23
+        metadata:
+          labels:
+            app.kubernetes.io/component: csi-driver
+            app.kubernetes.io/managed-by: EKS
+            app.kubernetes.io/name: aws-ebs-csi-driver
+            app.kubernetes.io/version: 1.30.0
+          name: ebs-csi-controller-sa
+          namespace: kube-system
+        tags:
+          alpha.rafay.io/cluster-name: vijayseks06052024
+          alpha.rafay.io/iamserviceaccount-name: kube-system/ebs-csi-controller-sa
+          alpha.rafay.io/rafay-version: v2.5.0-1
+          alpha.rafay.io/stack-uuid: 2l8gp7k-cluster-99ed4c99-97d1-4e4e-82e2-e021af9c0308
+          email: vijaysamanthapuri@rafay.co
+          env: cs-demo
+          rafay.cluster.k8s.io/v1alpha1/cluster-name: vijayseks06052024
+      serviceRoleARN: arn:aws:iam::679196758854:role/rafay-vijayseks06052024-cluster-ServiceRole-Hn9Z4x4H5Flw
+      withOIDC: true
+    managedNodeGroups:
+    - amiFamily: AmazonLinux2
+      availabilityZones:
+      - us-west-2b
+      - us-west-2a
+      - us-west-2c
+      desiredCapacity: 2
+      iam:
+        instanceRoleARN: arn:aws:iam::679196758854:role/vijaysworkerrole
+      instanceType: t3.xlarge
+      labels:
+        alpha.rafay.io/cluster-name: vijayseks06052024
+        alpha.rafay.io/nodegroup-name: vijays-ng
+      maxSize: 6
+      minSize: 2
+      name: vijays-ng
+      securityGroups:
+        attachIDs:
+        - sg-0196328ab4a6acda9
+        - sg-05da4e5dd204a15b2
+      ssh:
+        allow: true
+        publicKeyName: awskey
+      subnets:
+      - subnet-01191eb45bbc20289
+      - subnet-0c2ace7c1bd6f389d
+      - subnet-0700983bf90ca0ec6
+      tags:
+        alpha.rafay.io/cluster-name: vijayseks06052024
+        alpha.rafay.io/nodegroup-name: vijays-ng
+        alpha.rafay.io/nodegroup-type: managed
+        alpha.rafay.io/rafay-version: v2.5.0-1
+        email: vijaysamanthapuri@rafay.co
+        env: cs-demo
+        rafay.cluster.k8s.io/v1alpha1/cluster-name: vijayseks06052024
+      volumeEncrypted: true
+      volumeKmsKeyID: c947bc10-efcf-4fb7-b394-4ff65adac7a8
+      volumeSize: 80
+      volumeType: gp3
+    metadata:
+      name: vijayseks06052024
+      region: us-west-2
+      tags:
+        alpha.rafay.io/cluster-name: vijayseks06052024
+        alpha.rafay.io/rafay-version: v2.5.0-1
+        alpha.rafay.io/stack-uuid: 2l8gp7k-cluster-99ed4c99-97d1-4e4e-82e2-e021af9c0308
+        email: vijaysamanthapuri@rafay.co
+        env: cs-demo
+      version: "1.29"
+    network:
+      cni:
+        name: aws-cni
+        params:
+          customCniCrdSpec:
+            us-west-2a:
+            - securityGroups:
+              - sg-0f4021b2dc09124d4
+              - sg-0196328ab4a6acda9
+              subnet: subnet-04a4f0d7703a6019d
+            us-west-2b:
+            - securityGroups:
+              - sg-0f4021b2dc09124d4
+              - sg-0196328ab4a6acda9
+              subnet: subnet-0ce592c166364df2b
+            us-west-2c:
+            - securityGroups:
+              - sg-0f4021b2dc09124d4
+              - sg-0196328ab4a6acda9
+              subnet: subnet-06837762030effed4
+    vpc:
+      cidr: 10.230.0.0/16
+      clusterEndpoints:
+        privateAccess: true
+        publicAccess: true
+      id: vpc-02f9ef53236d78343
+      securityGroup: sg-081985fc137c9e83d
+      subnets:
+        public:
+          subnet-01191eb45bbc20289:
+            id: subnet-01191eb45bbc20289
+          subnet-0700983bf90ca0ec6:
+            id: subnet-0700983bf90ca0ec6
+          subnet-0c2ace7c1bd6f389d:
+            id: subnet-0c2ace7c1bd6f389d
+  proxyConfig: {}
+  type: aws-eks
