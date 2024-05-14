@@ -15,5 +15,9 @@ spec:
     enableMonitoring: true
   driftWebhook:
     enabled: true
+  sharing:
+    enabled: true
+    projects:
+    - name: production
   type: custom
   version: v1
