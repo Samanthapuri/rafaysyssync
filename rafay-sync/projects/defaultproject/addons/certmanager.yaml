@@ -7,10 +7,10 @@ spec:
   artifact:
     artifact:
       chartName: cert-manager
-      chartVersion: v1.0.0
+      chartVersion: v1.1.0
       valuesPaths:
       - name: file://artifacts/certmanager/values.yaml
     type: Helm
   namespace: cert-manager
   sharing: {}
-  version: v1
+  version: v2
