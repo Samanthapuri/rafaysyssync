@@ -1,7 +1,7 @@
 apiVersion: infra.k8smgmt.io/v3
 kind: Cluster
 metadata:
-  name: vijayseks23052024
+  name: vijayseks230520241
   project: defaultproject
 spec:
   blueprintConfig:
@@ -14,10 +14,10 @@ spec:
     - name: kube-proxy
       version: latest
     - name: aws-ebs-csi-driver
-      serviceAccountRoleARN: arn:aws:iam::679196758854:role/ebscsicontrollervijaysrole26
+      serviceAccountRoleARN: arn:aws:iam::679196758854:role/ebscsicontrollervijaysrole27
       version: latest
     - name: vpc-cni
-      serviceAccountRoleARN: arn:aws:iam::679196758854:role/vijaysvpccnirole26
+      serviceAccountRoleARN: arn:aws:iam::679196758854:role/vijaysvpccnirole27
       version: v1.18.1-eksbuild.1
     iam:
       serviceAccounts:
@@ -26,18 +26,18 @@ spec:
         metadata:
           name: ebs-csi-controller-sa
           namespace: kube-system
-        roleName: ebscsicontrollervijaysrole26
+        roleName: ebscsicontrollervijaysrole27
         roleOnly: true
       - attachPolicyARNs:
         - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
         metadata:
           name: aws-node
           namespace: kube-system
-        roleName: vijaysvpccnirole26
+        roleName: vijaysvpccnirole27
         roleOnly: true
       withOIDC: true
     metadata:
-      name: vijayseks23052024
+      name: vijayseks230520241
       region: us-west-2
       tags:
         email: vijaysamanthapuri@rafay.co
@@ -61,7 +61,7 @@ spec:
               - sg-0f4021b2dc09124d4
               subnet: subnet-06837762030effed4
     nodeGroups:
-    - amiFamily: AmazonLinux2
+    - ami: ami-09e9b983e04338781
       desiredCapacity: 2
       iam:
         instanceRoleARN: arn:aws:iam::679196758854:role/vijaysworkerrole
@@ -73,7 +73,7 @@ spec:
       - |
         #!/bin/bash -xe
         echo LS0tCmFwaVZlcnNpb246IG5vZGUuZWtzLmF3cy92MWFscGhhMQpraW5kOiBOb2RlQ29uZmlnCnNwZWM6CiAgY2x1c3RlcjoKICAgIG5hbWU6ICR7Q0xVU1RFUl9OQU1FfQogICAgYXBpU2VydmVyRW5kcG9pbnQ6ICR7RU5EUE9JTlR9CiAgICBjZXJ0aWZpY2F0ZUF1dGhvcml0eTogJHtDRVJUREFUQX0KICAgIGNpZHI6ICR7Q0lEUn0K | base64 -d > /tmp/nodetemplate_config
-        read -r CLUSTER_NAME ENDPOINT CERTDATA CIDR <<< `aws eks describe-cluster --name vijayseks23052024 | jq '.cluster | [.name,.endpoint,.certificateAuthority.data,.kubernetesNetworkConfig.serviceIpv4Cidr] | @tsv' -r`
+        read -r CLUSTER_NAME ENDPOINT CERTDATA CIDR <<< `aws eks describe-cluster --name vijayseks230520241 | jq '.cluster | [.name,.endpoint,.certificateAuthority.data,.kubernetesNetworkConfig.serviceIpv4Cidr] | @tsv' -r`
         export CLUSTER_NAME ENDPOINT CERTDATA CIDR
         envsubst < /tmp/nodetemplate_config > /root/nodeconfig
         nodeadm init -c file:///root/nodeconfig
