@@ -7,7 +7,8 @@ metadata:
   project: defaultproject
 spec:
   blueprintConfig:
-    name: minimal
+    name: withoutpromadapter
+    version: v1
   cloudCredentials: vijaysrole
   config:
     addons:
@@ -20,7 +21,7 @@ spec:
       version: latest
     - name: vpc-cni
       serviceAccountRoleARN: arn:aws:iam::679196758854:role/vijaysvpccnirole20
-      version: latest
+      version: v1.18.1-eksbuild.1
     iam:
       serviceAccounts:
       - attachPolicyARNs:
@@ -38,31 +39,13 @@ spec:
         roleName: vijaysvpccnirole20
         roleOnly: true
       withOIDC: true
-    managedNodeGroups:
-    - amiFamily: AmazonLinux2
-      desiredCapacity: 1
-      iam:
-        withAddonPolicies:
-          autoScaler: true
-          imageBuilder: true
-      instanceTypes:
-      - t3.xlarge
-      maxSize: 1
-      minSize: 1
-      name: bottlerockvijays
-      privateNetworking: true
-      tags:
-        email: vijaysamanthapuri@rafay.co
-        env: cs-demo
-      volumeSize: 80
-      volumeType: gp3
     metadata:
       name: vijayseks15042024
       region: us-west-2
       tags:
         email: vijaysamanthapuri@rafay.co
         env: cs-demo
-      version: "1.28"
+      version: "1.29"
     network:
       cni:
         name: aws-cni
