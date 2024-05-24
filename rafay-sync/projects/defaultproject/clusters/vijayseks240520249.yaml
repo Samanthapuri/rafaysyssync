@@ -1,0 +1,88 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Cluster
+metadata:
+  name: vijayseks240520249
+  project: defaultproject
+spec:
+  blueprintConfig:
+    name: minimal
+  cloudCredentials: vijaysrole
+  config:
+    addons:
+    - name: coredns
+      version: latest
+    - name: kube-proxy
+      version: latest
+    - name: aws-ebs-csi-driver
+      version: latest
+    - name: vpc-cni
+      version: v1.18.1-eksbuild.1
+    iam:
+      withOIDC: true
+    metadata:
+      name: vijayseks240520249
+      region: us-west-2
+      tags:
+        email: vijaysamanthapuri@rafay.co
+        env: cs-demo
+      version: "1.29"
+    network:
+      cni:
+        name: aws-cni
+        params:
+          customCniCrdSpec:
+            us-west-2a:
+            - securityGroups:
+              - sg-0f4021b2dc09124d4
+              subnet: subnet-04a4f0d7703a6019d
+            us-west-2b:
+            - securityGroups:
+              - sg-0f4021b2dc09124d4
+              subnet: subnet-0ce592c166364df2b
+            us-west-2c:
+            - securityGroups:
+              - sg-0f4021b2dc09124d4
+              subnet: subnet-06837762030effed4
+    nodeGroups:
+    - ami: ami-09e9b983e04338781
+      desiredCapacity: 1
+      iam:
+        instanceRoleARN: arn:aws:iam::679196758854:role/vijaysworkerrole
+      instanceType: t3.xlarge
+      maxSize: 1
+      minSize: 1
+      name: vijays-ng
+      preBootstrapCommands:
+      - |
+        #!/bin/bash
+        echo Z3JlcCAtQSA1MDAgLW0xICJeL2V0Yy9la3MvYm9vdHN0cmFwLnNoIiAvdmFyL2xpYi9jbG91ZC9pbnN0YW5jZXMvJChlYzItbWV0YWRhdGEgLWkgLS1xdWlldCkvc2NyaXB0cy9ydW5jbWQgfCBzZWQgJ3MvXlwvdmFyXC9saWJcL2Nsb3VkXC9pbnN0YW5jZXNcL2ktLipcL3NjcmlwdHNcL3J1bmNtZC0vL2cnIHwgZ3JlcCAtbSAxIC1CIDUwMCAiL3Zhci9zcG9vbC9jcm9uL3Jvb3QiIHwgaGVhZCAtbiAtMSB8IHNlZCAicy8nXFxcJy8vZyIgfCB0YWlsIC1uICsyID4gL3Jvb3QvZmlsZQpncmVwIC1vICIvdXNyL2xvY2FsL2Jpbi9yY3J5cHQuKjsiIC92YXIvbGliL2Nsb3VkL2luc3RhbmNlcy8kKGVjMi1tZXRhZGF0YSAtaSAtLXF1aWV0KS9zY3JpcHRzL3J1bmNtZCB8IGhlYWQgLW4gMSB8IHRyIC1kICInIiB8IHRyIC1kICI7IiA+PiAvcm9vdC9maWxlCmNobW9kIHUreCAvcm9vdC9maWxlCi9iaW4vY3AgLXJmcCAvdXNyL2xvY2FsL2Jpbi9hd3MtaWFtLWF1dGhlbnRpY2F0b3IgL3Vzci9iaW4vYXdzLWlhbS1hdXRoZW50aWNhdG9yCnNlZCAtaSAnMmkgL2Jpbi9jcCAtcmZwIC91c3IvbG9jYWwvYmluL2F3cy1pYW0tYXV0aGVudGljYXRvciAvdXNyL2Jpbi9hd3MtaWFtLWF1dGhlbnRpY2F0b3InIC9yb290L2ZpbGUKL3Jvb3QvZmlsZQplY2hvIExTMHRDbUZ3YVZabGNuTnBiMjQ2SUc1dlpHVXVaV3R6TG1GM2N5OTJNV0ZzY0doaE1RcHJhVzVrT2lCT2IyUmxRMjl1Wm1sbkNuTndaV002Q2lBZ1kyeDFjM1JsY2pvS0lDQWdJRzVoYldVNklDUjdRMHhWVTFSRlVsOU9RVTFGZlFvZ0lDQWdZWEJwVTJWeWRtVnlSVzVrY0c5cGJuUTZJQ1I3UlU1RVVFOUpUbFI5Q2lBZ0lDQmpaWEowYVdacFkyRjBaVUYxZEdodmNtbDBlVG9nSkh0RFJWSlVSRUZVUVgwS0lDQWdJR05wWkhJNklDUjdRMGxFVW4wSyB8IGJhc2U2NCAtZCA+IC90bXAvbm9kZXRlbXBsYXRlX2NvbmZpZwpyZWFkIC1yIENMVVNURVJfTkFNRSBFTkRQT0lOVCBDRVJUREFUQSBDSURSIDw8PCBgYXdzIGVrcyBkZXNjcmliZS1jbHVzdGVyIC0tbmFtZSAkMSB8IGpxICcuY2x1c3RlciB8IFsubmFtZSwuZW5kcG9pbnQsLmNlcnRpZmljYXRlQXV0aG9yaXR5LmRhdGEsLmt1YmVybmV0ZXNOZXR3b3JrQ29uZmlnLnNlcnZpY2VJcHY0Q2lkcl0gfCBAdHN2JyAtcmAKZXhwb3J0IENMVVNURVJfTkFNRSBFTkRQT0lOVCBDRVJUREFUQSBDSURSCmVudnN1YnN0IDwgL3RtcC9ub2RldGVtcGxhdGVfY29uZmlnID4gL3Jvb3Qvbm9kZWNvbmZpZwpub2RlYWRtIGluaXQgLWMgZmlsZTovLy9yb290L25vZGVjb25maWcK | base64 -d > /root/file
+        chmod u+x /root/file
+        echo W1VuaXRdCkRlc2NyaXB0aW9uPU15IEpvYgoKW1NlcnZpY2VdClR5cGU9c2ltcGxlClJlc3RhcnQ9YWx3YXlzCkV4ZWNTdGFydD0vYmluL2Jhc2ggL3Jvb3QvZmlsZQo= | base64 -d | sed 's/\/root\/file/\/root\/file vijayseks240520249/' > /etc/systemd/system/myjob.service
+        echo W1VuaXRdCkRlc2NyaXB0aW9uPU15IFRpbWVyCgpbVGltZXJdCk9uQ2FsZW5kYXI9Ki0qLSogKjoqLzU6MDAKUGVyc2lzdGVudD10cnVlClVuaXQ9bXlqb2Iuc2VydmljZQoKW0luc3RhbGxdCldhbnRlZEJ5PW11bHRpLXVzZXIudGFyZ2V0Cg== | base64 -d > /etc/systemd/system/myjob.timer
+        systemctl daemon-reload
+        systemctl enable myjob.timer --now
+      privateNetworking: true
+      ssh:
+        allow: true
+        publicKeyName: awskey
+      tags:
+        email: vijaysamanthapuri@rafay.co
+        env: cs-demo
+      version: "1.29"
+      volumeEncrypted: true
+      volumeSize: 80
+      volumeType: gp3
+    vpc:
+      clusterEndpoints:
+        privateAccess: true
+        publicAccess: false
+      id: null
+      subnets:
+        private:
+          private-01:
+            id: subnet-01191eb45bbc20289
+          private-02:
+            id: subnet-0c2ace7c1bd6f389d
+          private-03:
+            id: subnet-0700983bf90ca0ec6
+  type: aws-eks
