@@ -7,8 +7,8 @@ metadata:
   project: defaultproject
 spec:
   blueprintConfig:
-    name: withoutpromadapter
-    version: v1
+    name: custombp
+    version: v3
   cloudCredentials: vijaysrole
   config:
     addons:
