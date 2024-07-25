@@ -4,6 +4,9 @@ metadata:
   name: appd
   project: defaultproject
 spec:
+  agents:
+  - {}
+  endpoint: https://appdynamics.jfrog.io/artifactory/appdynamics-cloud-helmcharts/
   options: {}
   type: Helm
 status:
