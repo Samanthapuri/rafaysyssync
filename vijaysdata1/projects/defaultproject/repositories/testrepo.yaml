@@ -1,0 +1,22 @@
+apiVersion: integrations.k8smgmt.io/v3
+kind: Repository
+metadata:
+  name: testrepo
+  project: defaultproject
+spec:
+  agents:
+  - name: eksagent18042024
+  endpoint: https:/gitlab.com/testrepo.git
+  options:
+    provider: Gitlab
+  type: Git
+status:
+  agents:
+  - id: x281oek
+    name: eksagent18042024
+  projects:
+  - projectId: d2wpz6k
+    repositoryId: 29e5nyk
+  webhookConfig:
+    webhookSecret: 23cd0f9a8aba7d3098a89931d0dd7362c358a865f933cd07baaea168f84ac5b0
+    webhookURL: https://console.rafay.dev/v2/config/webhook/repository/29e5nyk
