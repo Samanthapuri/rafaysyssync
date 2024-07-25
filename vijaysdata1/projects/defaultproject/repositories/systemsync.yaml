@@ -10,7 +10,8 @@ spec:
     password: sealed://credentials.password
     username: samanthapuri
   endpoint: https://github.com/Samanthapuri/rafaysyssync.git
-  options: {}
+  options:
+    provider: Github
   secret:
     name: file://artifacts/systemsync/sealed-secret.yaml
   sharing:
