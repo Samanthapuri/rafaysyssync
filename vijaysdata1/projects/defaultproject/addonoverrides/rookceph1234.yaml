@@ -12,7 +12,6 @@ spec:
     - key: rafay.dev/clusterName
       value: cephtest
   resource:
-    selector: {}
     type: Addon
   type: Helm
   valuesPath:

@@ -11,3 +11,6 @@ status:
   projects:
   - projectId: d2wpz6k
     repositoryId: kgxn08m
+  webhookConfig:
+    webhookSecret: aefefd2e5bd83b96cb206bf84aadc09b59a72442835c119b2cded28d37bed371
+    webhookURL: https://console.rafay.dev/v2/config/webhook/repository/kgxn08m
