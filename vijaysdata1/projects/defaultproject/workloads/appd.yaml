@@ -1,0 +1,21 @@
+apiVersion: apps.k8smgmt.io/v3
+kind: Workload
+metadata:
+  name: appd
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      chartName: appdynamics-collectors
+      chartVersion: 1.11.589
+      repository: appd
+      valuesPaths:
+      - name: file://artifacts/appd/collectors-values copy.yaml
+    options:
+      maxHistory: 10
+      timeout: 5m0s
+    type: Helm
+  namespace: testns
+  placement:
+    selector: rafay.dev/clusterName=vijaysrookceph
+  version: appd-v4-202407251848330000

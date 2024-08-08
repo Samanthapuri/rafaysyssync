@@ -1,0 +1,22 @@
+apiVersion: apps.k8smgmt.io/v3
+kind: Workload
+metadata:
+  name: gitopswl
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      chartPath:
+        name: charts/hello-world
+      repository: helmsample
+      revision: main
+      valuesPaths:
+      - name: charts/hello-world/values.yaml
+    options:
+      maxHistory: 10
+      timeout: 5m0s
+    type: Helm
+  namespace: chaos-mesh
+  placement:
+    selector: rafay.dev/clusterName=ubuntumkstest
+  version: gitopswl-v4-202403262324110000

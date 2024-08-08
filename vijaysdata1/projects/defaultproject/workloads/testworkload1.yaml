@@ -1,0 +1,15 @@
+apiVersion: apps.k8smgmt.io/v3
+kind: Workload
+metadata:
+  name: testworkload1
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      paths:
+      - name: file://artifacts/testworkload1/testworkload1.yaml
+    type: Yaml
+  namespace: testns
+  placement:
+    selector: rafay.dev/clusterName=vijayseks15042024
+  version: testworkload1-v12-202407111950330000

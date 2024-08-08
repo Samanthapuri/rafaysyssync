@@ -1,0 +1,15 @@
+apiVersion: apps.k8smgmt.io/v3
+kind: Workload
+metadata:
+  name: ankit-1
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      paths:
+      - name: file://artifacts/ankit-1/ankit-1.yaml
+    type: Yaml
+  namespace: vijaysrandom27062024
+  placement:
+    selector: rafay.dev/clusterName=vijayseks15042024
+  version: ankit-1-v2-202407030558000000
