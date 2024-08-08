@@ -1,0 +1,18 @@
+apiVersion: apps.k8smgmt.io/v3
+kind: Workload
+metadata:
+  name: myapp1
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      chartPath:
+        name: file://artifacts/myapp1/myapp-0.1.0.tgz
+    options:
+      maxHistory: 10
+      timeout: 5m0s
+    type: Helm
+  namespace: ankitns
+  placement:
+    selector: rafay.dev/clusterName=vijayseks15042024
+  version: myapp1-v3-202407112015040000
