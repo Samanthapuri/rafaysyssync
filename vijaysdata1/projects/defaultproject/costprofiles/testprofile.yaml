@@ -1,0 +1,14 @@
+apiVersion: cost.k8smgmt.io/v3
+kind: CostProfile
+metadata:
+  name: testprofile
+  project: defaultproject
+spec:
+  installationParams:
+    aws:
+      awsCredentials:
+        cloudCredentialsName: vijaysrole
+      curIntegration: {}
+      spotIntegration: {}
+  providerType: aws
+  version: v1

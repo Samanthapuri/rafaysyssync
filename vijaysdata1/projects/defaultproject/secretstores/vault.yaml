@@ -1,0 +1,15 @@
+apiVersion: integrations.k8smgmt.io/v3
+kind: SecretStore
+metadata:
+  name: vault
+  project: defaultproject
+spec:
+  config:
+    vault:
+      clusters:
+      - authPath: k8s/vaulttest
+        clusterName: vaulttest
+      - authPath: k8s/upgradetest
+        clusterName: upgradetest
+      host: https://valut.ingress.cs.dev.rafay-edge.net
+  provider: Vault

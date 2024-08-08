@@ -1,0 +1,13 @@
+apiVersion: integrations.k8smgmt.io/v3
+kind: SecretStore
+metadata:
+  name: vijaysvault
+  project: defaultproject
+spec:
+  config:
+    vault:
+      clusters:
+      - authPath: vijaysauth
+        clusterName: vijaysrookceph
+      host: http://vault.vault.svc:8200
+  provider: Vault

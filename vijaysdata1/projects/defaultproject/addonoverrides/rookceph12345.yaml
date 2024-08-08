@@ -1,0 +1,19 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: AddonOverride
+metadata:
+  labels:
+    rafay.dev/overrideScope: clusterLabels
+    rafay.dev/overrideType: valuesFile
+  name: rookceph12345
+  project: defaultproject
+spec:
+  placement:
+    labels:
+    - key: rafay.dev/clusterName
+      value: cephtest
+  resource:
+    selector: {}
+    type: Addon
+  type: Helm
+  valuesPath:
+    name: file://rookceph12345/rookceph12345.yaml

@@ -1,0 +1,18 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: AddonOverride
+metadata:
+  labels:
+    rafay.dev/overrideScope: clusterLabels
+    rafay.dev/overrideType: valuesFile
+  name: test23
+  project: defaultproject
+spec:
+  placement:
+    selector: rafay.dev/clusterType in (aws-eks),glooEnabled!=true"
+  resource:
+    selector:
+      name: testaddon
+    type: Addon
+  type: Helm
+  valuesPath:
+    name: file://test23/test23.yaml

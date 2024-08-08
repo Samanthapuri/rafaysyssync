@@ -1,0 +1,13 @@
+apiVersion: integrations.k8smgmt.io/v3
+kind: SecretStore
+metadata:
+  name: test2
+  project: defaultproject
+spec:
+  config:
+    vault:
+      clusters:
+      - authPath: kubernetes/vijayseks15042024
+        clusterName: vijayseks15042024
+      host: http://vaulttest.svc.loc
+  provider: Vault

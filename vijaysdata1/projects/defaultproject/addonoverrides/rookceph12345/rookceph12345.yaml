@@ -1,0 +1,46 @@
+rook-ceph-cluster:
+  cephFileSystems:
+  - name: ceph-filesystem
+    spec:
+      dataPools:
+      - failureDomain: host
+        replicated:
+          size: 2
+      metadataPool:
+        replicated:
+          size: 1
+      metadataServer:
+        activeCount: 1
+        activeStandby: true
+        placement:
+          nodeAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              nodeSelectorTerms:
+              - matchExpressions:
+                - key: role
+                  operator: In
+                  values:
+                  - storage
+                - key: storage
+                  operator: In
+                  values:
+                  - rook-ceph
+                - key: kubernetes.io/os
+                  operator: In
+                  values:
+                  - linux
+    storageClass:
+      allowVolumeExpansion: true
+      enabled: true
+      isDefault: false
+      mountOptions: []
+      name: rook-cephfs
+      parameters:
+        csi.storage.k8s.io/controller-expand-secret-name: rook-csi-cephfs-provisioner
+        csi.storage.k8s.io/controller-expand-secret-namespace: rafay-infra
+        csi.storage.k8s.io/fstype: ext4
+        csi.storage.k8s.io/node-stage-secret-name: rook-csi-cephfs-node
+        csi.storage.k8s.io/node-stage-secret-namespace: rafay-infra
+        csi.storage.k8s.io/provisioner-secret-name: rook-csi-cephfs-provisioner
+        csi.storage.k8s.io/provisioner-secret-namespace: rafay-infra
+      reclaimPolicy: Delete

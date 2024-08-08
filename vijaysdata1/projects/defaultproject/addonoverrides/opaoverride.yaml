@@ -1,0 +1,16 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: AddonOverride
+metadata:
+  labels:
+    rafay.dev/overrideScope: clusterLabels
+    rafay.dev/overrideType: valuesFile
+  name: opaoverride
+  project: defaultproject
+spec:
+  resource:
+    selector:
+      selector: rafay.dev/system=true,name=opa-gatekeeper-3.11.0
+    type: Addon
+  type: Helm
+  valuesPath:
+    name: file://opaoverride/opaoverride.yaml

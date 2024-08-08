@@ -1,0 +1,11 @@
+apiVersion: gitops.k8smgmt.io/v3
+kind: Agent
+metadata:
+  name: mksrookceph
+  project: defaultproject
+spec:
+  active: true
+  cluster:
+    name: vijaysrookceph
+  type: Cluster
+  version: r2.7.0

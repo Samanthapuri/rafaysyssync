@@ -1,0 +1,18 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: AddonOverride
+metadata:
+  labels:
+    rafay.dev/overrideScope: clusterLabels
+    rafay.dev/overrideType: valuesFile
+  name: test3
+  project: defaultproject
+spec:
+  placement:
+    labels:
+    - key: rafay.dev/clusterType
+      value: aws-eks
+  resource:
+    type: Addon
+  type: Helm
+  valuesPath:
+    name: file://test3/test3.yaml
