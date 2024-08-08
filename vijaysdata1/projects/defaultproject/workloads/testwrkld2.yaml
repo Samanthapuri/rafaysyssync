@@ -1,0 +1,16 @@
+apiVersion: apps.k8smgmt.io/v3
+kind: Workload
+metadata:
+  name: testwrkld2
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      paths:
+      - name: file://artifacts/testwrkld2/testwrkld2.yaml
+    type: Yaml
+  namespace: ankitns
+  placement:
+    environment:
+      name: fmenv3
+    selector: rafay.dev/clusterName=vijaysrookceph
