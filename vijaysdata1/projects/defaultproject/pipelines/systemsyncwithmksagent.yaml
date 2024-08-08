@@ -24,7 +24,7 @@ spec:
   - config:
       repo:
         paths:
-        - name: vijaysdata/
+        - name: vijaysdata1/
         provider: Github
         repository: systemsync
         revision: master
