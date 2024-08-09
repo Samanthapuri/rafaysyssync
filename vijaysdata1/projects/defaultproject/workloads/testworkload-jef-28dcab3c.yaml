@@ -1,0 +1,27 @@
+apiVersion: apps.k8smgmt.io/v3
+kind: Workload
+metadata:
+  name: testworkload-jef-28dcab3c
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      chartPath:
+        name: charts/hello-world
+      repository: helmsample
+      revision: main
+      valuesPaths:
+      - name: charts/hello-world/values.yaml
+    options:
+      maxHistory: 10
+      setString:
+      - replicaCount=test
+      - image.tag=15.26
+      timeout: 5m0s
+    type: Helm
+  namespace: chaos-mesh
+  placement:
+    labels:
+    - key: rafay.dev/clusterName
+      value: ubuntumkstest
+  version: testworkload-jef-28dcab3c-v13-202403271923090000
