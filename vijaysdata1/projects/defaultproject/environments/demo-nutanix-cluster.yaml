@@ -16,7 +16,7 @@ spec:
       override:
         type: allowed
       required: true
-    value: (["master-0"])
+    value: (["master-0", "master-1"])
     valueType: hcl
   - name: memory_in_mb
     options:
@@ -65,7 +65,7 @@ spec:
       override:
         type: allowed
       required: true
-    value: ([])
+    value: (["worker-0"])
     valueType: hcl
   - name: cluster_kubernetes_version
     options:
