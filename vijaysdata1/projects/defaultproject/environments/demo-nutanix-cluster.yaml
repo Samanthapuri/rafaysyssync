@@ -58,6 +58,13 @@ spec:
       required: true
     value: demo
     valueType: text
+  - name: cluster_blueprint
+    options:
+      override:
+        type: allowed
+      required: true
+    value: minimal
+    valueType: text    
   - name: cluster_blueprint_version
     options:
       override:
