@@ -144,3 +144,4 @@ spec:
         type: allowed
     value: false
     valueType: json        
+
