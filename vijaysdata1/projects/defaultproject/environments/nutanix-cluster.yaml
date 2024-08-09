@@ -23,7 +23,7 @@ spec:
       override:
         type: allowed
       required: true
-    value: (["master-0", "master-1", "master-2"])
+    value: ([])
     valueType: hcl
   - name: memory_in_mb
     options:
@@ -124,5 +124,5 @@ spec:
       override:
         type: allowed
       required: true
-    value: (["worker-0", "worker-1", "worker-2"])
+    value: ([])
     valueType: hcl
