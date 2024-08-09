@@ -5,7 +5,7 @@ metadata:
   project: defaultproject
 spec:
   secret:
-    name: file://artifacts/nutanix-cluster1/sealed-secret.yaml
+    name: file://artifacts/demo-nutanix-cluster/sealed-secret.yaml
   template:
     name: nutanix-cluster
     version: v1
@@ -136,12 +136,11 @@ spec:
     options:
       override:
         type: allowed
-    value: false
+    value: "false"
     valueType: json
   - name: cluster_ha
     options:
       override:
         type: allowed
-    value: false
-    valueType: json        
-
+    value: "false"
+    valueType: json
