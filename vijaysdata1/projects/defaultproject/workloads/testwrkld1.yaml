@@ -14,4 +14,3 @@ spec:
     environment:
       name: fmenv
     selector: rafay.dev/clusterName=vijaysrookceph
-  version: testwrkld1-v6-202408081845190000
