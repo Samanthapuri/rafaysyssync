@@ -18,6 +18,55 @@ spec:
     - name: coredns
       version: latest
     iam:
+      serviceAccounts:
+      - attachPolicyARNs:
+        - arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy
+        metadata:
+          name: ebs-csi-controller-sa
+          namespace: kube-system
+        roleName: ebscsicontrollervijaysrole1
+        roleOnly: true
+      - attachPolicyARNs:
+        - arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy
+        metadata:
+          name: testsvc1
+          namespace: kube-system
+        roleName: vijaystestrole1
+      - attachPolicyARNs:
+        - arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy
+        metadata:
+          name: testsvc2
+          namespace: kube-system
+        roleName: vijaystestrole2
+      - attachPolicyARNs:
+        - arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy
+        metadata:
+          name: testsvc3
+          namespace: kube-system
+        roleName: vijaystestrole3
+      - attachPolicyARNs:
+        - arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy
+        metadata:
+          name: testsvc4
+          namespace: kube-system
+        roleName: vijaystestrole4
+      - attachPolicyARNs:
+        - arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy
+        metadata:
+          name: testsvc5
+          namespace: kube-system
+        roleName: vijaystestrole5
+        roleOnly: true
+      - attachPolicyARNs:
+        - arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy
+        metadata:
+          name: vijaystestsvc8
+          namespace: kube-system
+      - attachPolicyARNs:
+        - arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy
+        metadata:
+          name: vijaystestsvc10
+          namespace: kube-system
       withOIDC: true
     metadata:
       name: vijays201820242
