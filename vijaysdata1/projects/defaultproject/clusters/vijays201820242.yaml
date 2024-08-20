@@ -18,13 +18,7 @@ spec:
     - name: coredns
       version: latest
     iam:
-      serviceAccounts:
-      - attachPolicyARNs:
-        - arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy
-        metadata:
-          name: testsvc4
-          namespace: kube-system
-        roleName: vijaystestrole4      
+      serviceAccounts:   
       - attachPolicyARNs:
         - arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy
         metadata:
@@ -50,6 +44,12 @@ spec:
           name: testsvc3
           namespace: kube-system
         roleName: vijaystestrole3
+      - attachPolicyARNs:
+        - arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy
+        metadata:
+          name: testsvc4
+          namespace: kube-system
+        roleName: vijaystestrole4        
       withOIDC: true
     metadata:
       name: vijays201820242
