@@ -32,7 +32,13 @@ spec:
           name: testsvc5
           namespace: kube-system
         roleName: vijaystestrole5
-        roleOnly: true        
+        roleOnly: true
+      - attachPolicyARNs:
+        - arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy
+        metadata:
+          name: testsvc5
+          namespace: kube-system
+        roleName: vijaystestrole5          
       - attachPolicyARNs:
         - arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy
         metadata:
