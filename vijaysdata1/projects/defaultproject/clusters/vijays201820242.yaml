@@ -29,19 +29,6 @@ spec:
       - attachPolicyARNs:
         - arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy
         metadata:
-          name: testsvc5
-          namespace: kube-system
-        roleName: vijaystestrole5
-        roleOnly: true
-      - attachPolicyARNs:
-        - arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy
-        metadata:
-          name: testsvc7
-          namespace: kube-system
-        roleName: vijaystestrole7          
-      - attachPolicyARNs:
-        - arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy
-        metadata:
           name: testsvc1
           namespace: kube-system
         roleName: vijaystestrole1
@@ -54,12 +41,6 @@ spec:
       - attachPolicyARNs:
         - arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy
         metadata:
-          name: testsvc6
-          namespace: kube-system
-        roleName: vijaystestrole6        
-      - attachPolicyARNs:
-        - arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy
-        metadata:
           name: testsvc3
           namespace: kube-system
         roleName: vijaystestrole3
@@ -69,6 +50,18 @@ spec:
           name: testsvc4
           namespace: kube-system
         roleName: vijaystestrole4
+      - attachPolicyARNs:
+        - arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy
+        metadata:
+          name: testsvc5
+          namespace: kube-system
+        roleName: vijaystestrole5
+        roleOnly: true
+      - attachPolicyARNs:
+        - arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy
+        metadata:
+          name: vijaystestsvc8
+          namespace: kube-system
       withOIDC: true
     metadata:
       name: vijays201820242
