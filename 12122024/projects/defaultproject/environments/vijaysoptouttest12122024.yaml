@@ -17,7 +17,7 @@ spec:
       override:
         type: allowed
       required: true
-    value: 123-vijays
+    value: non-prod
     valueType: text
   - name: RCTL_API_KEY
     options:
