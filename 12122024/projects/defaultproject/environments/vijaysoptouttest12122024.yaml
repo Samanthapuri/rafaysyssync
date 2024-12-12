@@ -4,6 +4,9 @@ metadata:
   name: vijaysoptouttest12122024
   project: defaultproject
 spec:
+  schedule_optouts:
+  - duration: 30m
+    name: vijaysschedule
   template:
     name: tfdemo02
     version: v1
