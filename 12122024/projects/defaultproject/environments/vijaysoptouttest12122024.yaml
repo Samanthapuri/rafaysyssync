@@ -5,7 +5,7 @@ metadata:
   project: defaultproject
 spec:
   schedule_optouts:
-  - duration: 30m
+  - duration: 1h
     name: vijaysschedule
   template:
     name: tfdemo02
@@ -17,7 +17,7 @@ spec:
       override:
         type: allowed
       required: true
-    value: non-prod
+    value: random-test-value
     valueType: text
   - name: RCTL_API_KEY
     options:
@@ -31,5 +31,5 @@ spec:
       override:
         type: allowed
       required: true
-    value: console.rafay.dev
+    value: test.console.endpoint
     valueType: text
