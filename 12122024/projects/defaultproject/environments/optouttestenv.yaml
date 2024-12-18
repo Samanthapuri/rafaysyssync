@@ -4,9 +4,6 @@ metadata:
   name: optouttestenv
   project: defaultproject
 spec:
-  schedule_optouts:
-  - duration: 12h
-    name: testschedule
   secret:
     name: file://artifacts/optouttestenv/sealed-secret.yaml
   template:
@@ -19,7 +16,7 @@ spec:
       override:
         type: allowed
       required: true
-    value: vijays
+    value: testuser
     valueType: text
   - name: password
     options:
