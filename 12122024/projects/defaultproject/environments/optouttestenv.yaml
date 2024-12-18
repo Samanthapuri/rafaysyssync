@@ -5,21 +5,21 @@ metadata:
   project: defaultproject
 spec:
   schedule_optouts:
-  - duration: 1h
+  - duration: 12h
     name: testschedule
   secret:
     name: file://artifacts/optouttestenv/sealed-secret.yaml
   template:
     name: optouttest
     version: v1
-    versionState: draft
+    versionState: active
   variables:
   - name: username
     options:
       override:
         type: allowed
       required: true
-    value: testuser
+    value: vijays
     valueType: text
   - name: password
     options:
