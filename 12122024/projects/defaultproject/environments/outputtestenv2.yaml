@@ -1,0 +1,28 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: Environment
+metadata:
+  name: outputtestenv2
+  project: defaultproject
+spec:
+  secret:
+    name: file://artifacts/outputtestenv2/sealed-secret.yaml
+  template:
+    name: optouttest
+    version: v1
+    versionState: active
+  variables:
+  - name: username
+    options:
+      override:
+        type: allowed
+      required: true
+    value: testuser123
+    valueType: text
+  - name: password
+    options:
+      override:
+        type: allowed
+      required: true
+      sensitive: true
+    value: sealed://variables.1
+    valueType: text
