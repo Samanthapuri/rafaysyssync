@@ -4,6 +4,9 @@ metadata:
   name: outputtestenv2
   project: defaultproject
 spec:
+  schedule_optouts:
+  - duration: 30m
+    name: testschedule
   secret:
     name: file://artifacts/outputtestenv2/sealed-secret.yaml
   template:
