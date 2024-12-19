@@ -4,6 +4,9 @@ metadata:
   name: optouttestenv3
   project: defaultproject
 spec:
+  schedule_optouts:
+  - duration: 30m
+    name: testschedule
   secret:
     name: file://artifacts/optouttestenv3/sealed-secret.yaml
   template:
