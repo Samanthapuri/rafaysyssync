@@ -3,6 +3,7 @@ kind: Cluster
 metadata:
   labels:
     testkey: testvalue
+    testlabel: testvalue
   name: jeffdemocluster
   project: defaultproject
 spec:
