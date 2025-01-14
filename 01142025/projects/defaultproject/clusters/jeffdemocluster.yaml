@@ -1,13 +1,13 @@
 apiVersion: infra.k8smgmt.io/v3
 kind: Cluster
 metadata:
-  name: jeffdemocluster
-  project: defaultproject
   labels:
     testkey: testvalue
+  name: jeffdemocluster
+  project: defaultproject
 spec:
   blueprintConfig:
-    name: minimal 
+    name: minimal
     version: 2.12.0
   cloudCredentials: vijaysrole
   config:
