@@ -5,7 +5,7 @@ metadata:
   project: defaultproject
 spec:
   blueprintConfig:
-    name: minimal
+    name: default
     version: 2.12.0
   cloudCredentials: vijaysrole
   config:
@@ -26,7 +26,7 @@ spec:
       tags:
         email: vijaysamanthapuri@rafay.co
         env: cs-demo
-      version: "1.29"
+      version: "1.30"
     network:
       cni:
         name: aws-cni
@@ -69,8 +69,6 @@ spec:
       volumeSize: 80
       volumeThroughput: 125
       volumeType: gp3
-      iam:
-        instanceProfileARN: arn:aws:iam::679196758854:instance-profile/vijayseksworkerrole
     vpc:
       autoAllocateIPv6: false
       clusterEndpoints:
