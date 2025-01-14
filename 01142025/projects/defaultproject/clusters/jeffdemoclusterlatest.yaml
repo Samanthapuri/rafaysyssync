@@ -1,0 +1,87 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Cluster
+metadata:
+  labels:
+    testlabel: testvalue
+  name: jeffdemoclusterlatest 
+  project: myshared
+spec:
+  blueprintConfig:
+    name: minimal
+    version: 2.12.0
+  cloudCredentials: vijaysrole
+  config:
+    addons:
+    - name: coredns
+      version: latest
+    - name: kube-proxy
+      version: latest
+    - name: vpc-cni
+      version: latest
+    - name: aws-ebs-csi-driver
+      version: latest
+    iam:
+      withOIDC: true
+    metadata:
+      name: jeffdemoclusterlatest 
+      region: us-west-2
+      tags:
+        email: vijaysamanthapuri@rafay.co
+        env: cs-demo
+      version: "1.29"
+    network:
+      cni:
+        name: aws-cni
+        params:
+          customCniCrdSpec:
+            us-west-2a:
+            - subnet: subnet-0d2c3359d62594d32
+            us-west-2b:
+            - subnet: subnet-0e7c514426a237796
+            us-west-2c:
+            - subnet: subnet-0d03a8d56fee019e4
+    nodeGroups:
+    - amiFamily: AmazonLinux2
+      desiredCapacity: 2
+      disableIMDSv1: false
+      disablePodIMDS: false
+      ebsOptimized: false
+      efaEnabled: false
+      enableDetailedMonitoring: false
+      instanceType: t3.xlarge
+      maxPodsPerNode: 50
+      maxSize: 4
+      minSize: 0
+      name: demong
+      privateNetworking: true
+      ssh:
+        allow: true
+        publicKeyName: awskey
+      subnets:
+      - subnet-01191eb45bbc20289
+      - subnet-0c2ace7c1bd6f389d
+      - subnet-0b5454e3766e256cf
+      tags:
+        email: vijaysamanthapuri@rafay.co
+        env: cs-demo
+        testtag: valuefromng
+      version: "1.29"
+      volumeEncrypted: false
+      volumeIOPS: 3000
+      volumeSize: 80
+      volumeThroughput: 125
+      volumeType: gp3
+    vpc:
+      autoAllocateIPv6: false
+      clusterEndpoints:
+        privateAccess: true
+        publicAccess: true
+      subnets:
+        private:
+          private-01:
+            id: subnet-01191eb45bbc20289
+          private-02:
+            id: subnet-0c2ace7c1bd6f389d
+          private-03:
+            id: subnet-0b5454e3766e256cf
+  type: aws-eks
