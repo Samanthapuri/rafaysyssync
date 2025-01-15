@@ -7,7 +7,7 @@ metadata:
   project: defaultproject
 spec:
   blueprintConfig:
-    name: minimal
+    name: eks-bp
   cloudCredentials: vijaysrole
   config:
     addons:
