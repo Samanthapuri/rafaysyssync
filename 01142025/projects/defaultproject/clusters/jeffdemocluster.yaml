@@ -42,7 +42,7 @@ spec:
             - subnet: subnet-0d03a8d56fee019e4
     nodeGroups:
     - amiFamily: AmazonLinux2
-      desiredCapacity: 2
+      desiredCapacity: 3
       disableIMDSv1: false
       disablePodIMDS: false
       ebsOptimized: false
