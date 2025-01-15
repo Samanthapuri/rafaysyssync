@@ -8,7 +8,7 @@ metadata:
 spec:
   blueprintConfig:
     name: eks-bp
-    version: v3
+    version: v4
   cloudCredentials: vijaysrole
   config:
     addons:
