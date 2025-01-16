@@ -89,7 +89,7 @@ spec:
       maxPodsPerNode: 50
       maxSize: 4
       minSize: 0
-      name: demong2
+      name: demong1
       privateNetworking: true
       ssh:
         allow: true
@@ -121,7 +121,7 @@ spec:
       maxPodsPerNode: 50
       maxSize: 4
       minSize: 0
-      name: demong1
+      name: demong2
       privateNetworking: true
       ssh:
         allow: true
