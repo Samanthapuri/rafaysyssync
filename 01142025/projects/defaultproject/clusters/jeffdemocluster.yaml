@@ -56,12 +56,12 @@ spec:
       minSize: 0
       name: demong
       privateNetworking: true
-      ssh:
-        allow: true
-        publicKeyName: awskey
       securityGroups:
         attachIDs:
         - sg-0a80e939fdc50dc0e
+      ssh:
+        allow: true
+        publicKeyName: awskey
       subnets:
       - subnet-01191eb45bbc20289
       - subnet-0c2ace7c1bd6f389d
@@ -121,4 +121,8 @@ spec:
             id: subnet-0c2ace7c1bd6f389d
           private-03:
             id: subnet-0b5454e3766e256cf
+  sharing:
+    enabled: true
+    projects:
+    - name: '*'
   type: aws-eks
