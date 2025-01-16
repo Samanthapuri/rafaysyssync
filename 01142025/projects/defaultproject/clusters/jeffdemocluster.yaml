@@ -54,6 +54,37 @@ spec:
       maxPodsPerNode: 50
       maxSize: 4
       minSize: 0
+      name: demong3
+      privateNetworking: true
+      ssh:
+        allow: true
+        publicKeyName: awskey
+      subnets:
+      - subnet-01191eb45bbc20289
+      - subnet-0b5454e3766e256cf
+      tags:
+        email: vijaysamanthapuri@rafay.co
+        env: cs-demo
+        testtag: valuefromng
+      version: "1.29"
+      volumeEncrypted: false
+      volumeIOPS: 3000
+      volumeSize: 80
+      volumeThroughput: 125
+      volumeType: gp3
+    - amiFamily: AmazonLinux2
+      desiredCapacity: 3
+      disableIMDSv1: false
+      disablePodIMDS: false
+      ebsOptimized: false
+      efaEnabled: false
+      enableDetailedMonitoring: false
+      iam:
+        instanceProfileARN: arn:aws:iam::679196758854:instance-profile/vijayseksworkerrole
+      instanceType: t3.xlarge
+      maxPodsPerNode: 50
+      maxSize: 4
+      minSize: 0
       name: demong2
       privateNetworking: true
       ssh:
