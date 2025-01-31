@@ -7,8 +7,7 @@ metadata:
   project: defaultproject
 spec:
   blueprintConfig:
-    name: opaonly
-    version: v9
+    name: default
   cloudCredentials: vijaysrole
   config:
     addons:
@@ -63,7 +62,7 @@ spec:
             - subnet: subnet-0d03a8d56fee019e4
     nodeGroups:
     - amiFamily: AmazonLinux2
-      desiredCapacity: 2
+      desiredCapacity: 0
       disableIMDSv1: false
       disablePodIMDS: false
       ebsOptimized: false
@@ -71,7 +70,7 @@ spec:
       enableDetailedMonitoring: false
       instanceType: t3.xlarge
       maxPodsPerNode: 50
-      maxSize: 4
+      maxSize: 10
       minSize: 0
       name: ng-2
       privateNetworking: true
@@ -91,6 +90,29 @@ spec:
       volumeIOPS: 3000
       volumeSize: 80
       volumeThroughput: 125
+      volumeType: gp3
+    - amiFamily: AmazonLinux2
+      desiredCapacity: 10
+      iam:
+        withAddonPolicies:
+          autoScaler: true
+          imageBuilder: true
+      instancesDistribution:
+        instanceTypes:
+        - t3.xlarge
+      maxPodsPerNode: 110
+      maxSize: 12
+      minSize: 0
+      name: ng-3
+      privateNetworking: true
+      subnets:
+      - subnet-0b5454e3766e256cf
+      - subnet-0c2ace7c1bd6f389d
+      - subnet-01191eb45bbc20289
+      tags:
+        email: vijaysamanthapuri@rafay.co
+        env: cs-demo
+      volumeSize: 80
       volumeType: gp3
     vpc:
       autoAllocateIPv6: false
