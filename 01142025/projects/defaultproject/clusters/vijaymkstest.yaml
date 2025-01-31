@@ -1,0 +1,38 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Cluster
+metadata:
+  name: vijaymkstest
+  project: defaultproject
+spec:
+  blueprint:
+    name: gpu-operator
+    version: v2
+  config:
+    installerTtl: 365
+    kubernetesVersion: v1.30.4
+    network:
+      cni:
+        name: Calico
+        version: 3.28.1
+      podSubnet: 10.244.0.0/16
+      serviceSubnet: 10.96.0.0/12
+    nodes:
+    - arch: amd64
+      hostname: vijaysmkstest
+      labels:
+        nvidia.com/gpu.count: "4"
+        nvidia.com/gpu.deploy.dcgm-exporter: "true"
+        nvidia.com/gpu.deploy.device-plugin: "true"
+        nvidia.com/gpu.memory: "22882"
+        nvidia.com/gpu.present: "true"
+        nvidia.com/gpu.product: Tesla-K80
+        nvidia.com/mig.strategy: mixed
+        run.ai/fake.gpu: "true"
+        run.ai/simulated-gpu-node-pool: default
+      operatingSystem: Ubuntu22.04
+      privateIP: 10.0.0.42
+      roles:
+      - Worker
+      - ControlPlane
+  proxy: {}
+  type: mks
