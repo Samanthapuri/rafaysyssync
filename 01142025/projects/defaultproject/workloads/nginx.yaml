@@ -9,6 +9,8 @@ spec:
       catalog: default-helm
       chartName: ingress-nginx
       chartVersion: 4.12.0
+      valuesPaths:
+      - name: file://artifacts/nginx/relay-values.yaml
     options:
       maxHistory: 10
       timeout: 5m0s
@@ -16,4 +18,4 @@ spec:
   namespace: testns
   placement:
     selector: rafay.dev/clusterName=vijayseks121220242
-  version: nginx-v1-202501132257320000
+  version: nginx-v3-202502032016270000
