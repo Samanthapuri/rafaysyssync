@@ -10,5 +10,13 @@ spec:
         name: file://artifacts/testwlvijays/testchart-0.1.0.tgz
       valuesPaths:
       - name: file://artifacts/testwlvijays/values.yaml
+    options:
+      maxHistory: 10
+      timeout: 5m0s
     type: Helm
   namespace: defaultns
+  placement:
+    environment:
+      name: drivertest2
+    selector: rafay.dev/clusterName=vijayseks121220242
+  version: testwlvijays-v1-202502032217330000
