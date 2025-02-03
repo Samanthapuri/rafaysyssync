@@ -7,7 +7,7 @@ spec:
   artifact:
     artifact:
       chartPath:
-        name: file://artifacts/testhelm/vcluster-0.21.2.tgz
+        name: file://artifacts/testhelm/testchart-0.1.0.tgz
       valuesPaths:
       - name: file://artifacts/testhelm/values.yaml
     options:
@@ -19,4 +19,4 @@ spec:
     environment:
       name: drivertest2
     selector: rafay.dev/clusterName=vijayseks121220242
-  version: testhelm-v1-202502032040390000
+  version: testhelm-v2-202502032112550000
