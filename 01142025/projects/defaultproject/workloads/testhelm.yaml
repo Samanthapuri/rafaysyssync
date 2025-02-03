@@ -10,5 +10,13 @@ spec:
         name: file://artifacts/testhelm/vcluster-0.21.2.tgz
       valuesPaths:
       - name: file://artifacts/testhelm/values.yaml
+    options:
+      maxHistory: 10
+      timeout: 5m0s
     type: Helm
   namespace: defaultns
+  placement:
+    environment:
+      name: drivertest2
+    selector: rafay.dev/clusterName=vijayseks121220242
+  version: testhelm-v1-202502032040390000
