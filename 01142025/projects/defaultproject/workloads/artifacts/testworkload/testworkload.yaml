@@ -18,5 +18,11 @@ spec:
       containers:
       - name: nginx
         image: centos
-        command: ["sleep"]
-        args:  ["60000"]
+        env:
+        - name: TESTVAR
+          value: $(cat /tmp/testfile)
+        command:
+        - sleep
+        - "6000"
+        
+        
