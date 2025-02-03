@@ -5,6 +5,13 @@ metadata:
   project: defaultproject
 spec:
   artifact:
-    artifact: {}
+    artifact:
+      paths:
+      - name: file://artifacts/testworkload/testworkload.yaml
     type: Yaml
   namespace: defaultns
+  placement:
+    environment:
+      name: drivertest2
+    selector: rafay.dev/clusterName=vijayseks121220242
+  version: testworkload-v1-202502032022260000
