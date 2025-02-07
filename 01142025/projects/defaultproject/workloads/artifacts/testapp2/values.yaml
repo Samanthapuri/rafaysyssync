@@ -1,2 +1,2 @@
 labels:
-  testkey1: $(environment["optouttest"].output.dummuoutput)$
+  testkey1: $(environment.optouttest.output.dummuoutput)$
