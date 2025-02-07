@@ -19,4 +19,4 @@ spec:
     environment:
       name: drivertest3
     selector: rafay.dev/clusterName=vijayseks121220242
-  version: testapp2-v1-202502071916410000
+  version: testapp2-v2-202502071921480000
