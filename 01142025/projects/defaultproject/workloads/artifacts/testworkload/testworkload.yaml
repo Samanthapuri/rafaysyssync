@@ -22,7 +22,12 @@ spec:
         - name: TESTVAR
           value: $(cat /tmp/testfile)
         command:
-        - sleep
-        - "6000"
+        - /bin/bash
+        - -c
+        - |
+          HSTNM=$(cat /etc/hostname)
+          echo $HSTNM
+          echo "hi"
+          sleep 6000
         
         
