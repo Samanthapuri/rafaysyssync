@@ -1,0 +1,20 @@
+apiVersion: apps.k8smgmt.io/v3
+kind: Workload
+metadata:
+  name: testapp1
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      chartPath:
+        name: file://artifacts/testapp1/tesapp-0.1.0.tgz
+    options:
+      maxHistory: 10
+      timeout: 5m0s
+    type: Helm
+  namespace: defaultns
+  placement:
+    environment:
+      name: drivertest3
+    selector: rafay.dev/clusterName=vijayseks121220242
+  version: testapp1-v2-202502071900000000
