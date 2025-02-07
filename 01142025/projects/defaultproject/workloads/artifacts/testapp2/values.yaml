@@ -1,0 +1,2 @@
+labels:
+  testkey1: $(environment["optouttest"].dummuoutput)$

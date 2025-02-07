@@ -5,6 +5,10 @@ metadata:
   project: defaultproject
 spec:
   artifact:
-    artifact: {}
+    artifact:
+      chartPath:
+        name: file://artifacts/testapp2/tesapp-0.1.0.tgz
+      valuesPaths:
+      - name: file://artifacts/testapp2/values.yaml
     type: Helm
   namespace: testns
