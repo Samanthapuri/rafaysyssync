@@ -5,6 +5,13 @@ metadata:
   project: defaultproject
 spec:
   artifact:
-    artifact: {}
+    artifact:
+      paths:
+      - name: file://artifacts/testwlenv/testwlenv.yaml
     type: Yaml
   namespace: defaultns
+  placement:
+    environment:
+      name: drivertest3
+    selector: rafay.dev/clusterName=vijayseks121220242
+  version: testwlenv-v1-202502071846210000
