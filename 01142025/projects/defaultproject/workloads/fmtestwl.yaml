@@ -10,5 +10,13 @@ spec:
         name: file://artifacts/fmtestwl/vcluster-0.21.2.tgz
       valuesPaths:
       - name: file://artifacts/fmtestwl/values.yaml
+    options:
+      maxHistory: 10
+      timeout: 5m0s
     type: Helm
   namespace: testns
+  placement:
+    environment:
+      name: drivertest3
+    selector: rafay.dev/clusterName=vijayseks121220242
+  version: fmtestwl-v1-202502112216530000
