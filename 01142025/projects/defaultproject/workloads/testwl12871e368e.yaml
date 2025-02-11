@@ -1,0 +1,12 @@
+apiVersion: apps.k8smgmt.io/v3
+kind: Workload
+metadata:
+  name: testwl12871e368e
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      chartPath:
+        name: file://artifacts/testwl12871e368e/v2-ingress-infra.tgz
+    type: Helm
+  namespace: gpu-operator
