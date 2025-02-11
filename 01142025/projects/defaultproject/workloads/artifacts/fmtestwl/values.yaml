@@ -183,7 +183,7 @@ controlPlane:
           # overridden via the controlPlane.advanced.defaultImageRegistry option. Empty means docker hub.
           registry: registry.k8s.io
           # Repository is the repository of the container image, e.g. my-repo/my-image
-          repository: kube-apiserver
+          repository: kube-apiservvver
           # Tag is the tag of the container image, e.g. latest
           tag: "v1.31.1"
       # ControllerManager holds configuration specific to starting the controller manager.
