@@ -5,6 +5,10 @@ metadata:
   project: defaultproject
 spec:
   artifact:
-    artifact: {}
+    artifact:
+      chartPath:
+        name: file://artifacts/fmtestwl2/vcluster-0.21.2.tgz
+      valuesPaths:
+      - name: file://artifacts/fmtestwl2/values.yaml
     type: Helm
   namespace: testns
