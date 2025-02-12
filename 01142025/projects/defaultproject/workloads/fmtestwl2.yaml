@@ -12,9 +12,9 @@ spec:
       - name: file://artifacts/fmtestwl2/values.yaml
     options:
       maxHistory: 10
-      timeout: 5m0s
+      timeout: 1m0s
     type: Helm
   namespace: testns
   placement:
     selector: rafay.dev/clusterName=vijayseks121220242
-  version: fmtestwl2-v2-202502120015240000
+  version: fmtestwl2-v3-202502120023340000
