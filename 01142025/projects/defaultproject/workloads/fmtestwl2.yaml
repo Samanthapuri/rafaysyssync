@@ -17,3 +17,4 @@ spec:
   namespace: testns
   placement:
     selector: rafay.dev/clusterName=vijayseks121220242
+  version: fmtestwl2-v1-202502120008480000
