@@ -10,5 +10,10 @@ spec:
         name: file://artifacts/testworkload1234/secrets-store-csi-driver.tgz
       valuesPaths:
       - name: file://artifacts/testworkload1234/loki-values.yaml
+    options:
+      maxHistory: 10
+      timeout: 5m0s
     type: Helm
   namespace: defaultns
+  placement:
+    selector: rafay.dev/clusterName=mkstestcluster
