@@ -17,4 +17,4 @@ spec:
   namespace: tests
   placement:
     selector: rafay.dev/clusterName=vijayseks121220242
-  version: loki-v3-202503141523420000
+  version: loki-v4-202503141524410000
