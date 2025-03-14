@@ -17,3 +17,4 @@ spec:
   namespace: defaultns
   placement:
     selector: rafay.dev/clusterName=mkstestcluster
+  version: testworkload1234-v1-202503141758560000
