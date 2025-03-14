@@ -1,0 +1,379 @@
+Skip to sidebar navigation
+Skip to content
+Linked Applications
+Bitbucket
+Your work
+Projects
+Repositories
+People
+Search for code, commits or repositories
+Search for code, commits or repositories...
+Help
+Inbox
+3
+Logged in as Vincent Dasari (VDasari)
+JEM
+Clone
+Create branch
+Create pull request
+Create fork
+Compare
+Reports
+
+
+Source
+Commits
+Graphs
+Branches
+Pull requests
+Forks
+Builds
+
+JEM
+PREM-GRAFANA-REPO
+this repo will have all grafana related configurations and dashboards
+Source
+Source branchBranchmain
+Branch actions
+PREM-GRAFANA-REPO/Helm/loki/values_backup.yaml
+Predrag Mujkovic
+Predrag Mujkovic
+ authored 
+ab11d45ce50
+16 mins ago
+Edit
+Blame
+Raw file
+Source view
+Diff to previous
+History
+146.99 KBContributors
+1431
+#
+1432
+# For small to medium size Loki deployments up to around 1 TB/day, this is the default mode for this helm chart
+1433
+#
+1434
+######################################################################################################################
+1435
+​
+1436
+# Configuration for the write pod(s)
+1437
+write:
+1438
+  # -- Number of replicas for the write
+1439
+  replicas: 0
+1440
+  autoscaling:
+1441
+    # -- Enable autoscaling for the write.
+1442
+    enabled: false
+1443
+    # -- Minimum autoscaling replicas for the write.
+1444
+    minReplicas: 2
+1445
+    # -- Maximum autoscaling replicas for the write.
+1446
+    maxReplicas: 6
+1447
+    # -- Target CPU utilisation percentage for the write.
+1448
+    targetCPUUtilizationPercentage: 60
+1449
+    # -- Target memory utilization percentage for the write.
+1450
+    targetMemoryUtilizationPercentage:
+1451
+    # -- Behavior policies while scaling.
+1452
+    behavior:
+1453
+      # -- see https://github.com/grafana/loki/blob/main/docs/sources/operations/storage/wal.md#how-to-scale-updown for scaledown details
+1454
+      scaleUp:
+1455
+        policies:
+1456
+          - type: Pods
+1457
+            value: 1
+1458
+            periodSeconds: 900
+1459
+      scaleDown:
+1460
+        policies:
+1461
+          - type: Pods
+1462
+            value: 1
+1463
+            periodSeconds: 1800
+1464
+        stabilizationWindowSeconds: 3600
+1465
+  image:
+1466
+    # -- The Docker registry for the write image. Overrides `loki.image.registry`
+1467
+    registry: null
+1468
+    # -- Docker image repository for the write image. Overrides `loki.image.repository`
+1469
+    repository: null
+1470
+    # -- Docker image tag for the write image. Overrides `loki.image.tag`
+1471
+    tag: null
+1472
+  # -- The name of the PriorityClass for write pods
+1473
+  priorityClassName: null
+1474
+  # -- Annotations for write StatefulSet
+1475
+  annotations: {}
+1476
+  # -- Annotations for write pods
+1477
+  podAnnotations: {}
+1478
+  # -- Additional labels for each `write` pod
+1479
+  podLabels: {}
+1480
+  # -- Additional selector labels for each `write` pod
+1481
+  selectorLabels: {}
+1482
+  service:
+1483
+    # -- Annotations for write Service
+1484
+    annotations: {}
+1485
+    # -- Additional labels for write Service
+1486
+    labels: {}
+1487
+  # -- Comma-separated list of Loki modules to load for the write
+1488
+  targetModule: "write"
+1489
+  # -- Additional CLI args for the write
+1490
+  extraArgs: []
+1491
+  # -- Environment variables to add to the write pods
+1492
+  extraEnv: []
+1493
+  # -- Environment variables from secrets or configmaps to add to the write pods
+1494
+  extraEnvFrom: []
+1495
+  # -- Lifecycle for the write container
+1496
+  lifecycle: {}
+1497
+  # -- The default /flush_shutdown preStop hook is recommended as part of the ingester
+1498
+  # scaledown process so it's added to the template by default when autoscaling is enabled,
+1499
+  # but it's disabled to optimize rolling restarts in instances that will never be scaled
+1500
+  # down or when using chunks storage with WAL disabled.
+1501
+  # https://github.com/grafana/loki/blob/main/docs/sources/operations/storage/wal.md#how-to-scale-updown
+1502
+  # -- Init containers to add to the write pods
+1503
+  initContainers: []
+1504
+  # -- Containers to add to the write pods
+1505
+  extraContainers: []
+1506
+  # -- Volume mounts to add to the write pods
+1507
+  extraVolumeMounts: []
+1508
+  # -- Volumes to add to the write pods
+1509
+  extraVolumes: []
+1510
+  # -- volumeClaimTemplates to add to StatefulSet
+1511
+  extraVolumeClaimTemplates: []
+1512
+  # -- Resource requests and limits for the write
+1513
+  resources: {}
+1514
+  # -- Grace period to allow the write to shutdown before it is killed. Especially for the ingester,
+1515
+  # this must be increased. It must be long enough so writes can be gracefully shutdown flushing/transferring
+1516
+  # all data and to successfully leave the member ring on shutdown.
+1517
+  terminationGracePeriodSeconds: 300
+1518
+  # -- Affinity for write pods.
+1519
+  # @default -- Hard node anti-affinity
+1520
+  affinity:
+1521
+    podAntiAffinity:
+1522
+      requiredDuringSchedulingIgnoredDuringExecution:
+1523
+        - labelSelector:
+1524
+            matchLabels:
+1525
+              app.kubernetes.io/component: write
+1526
+          topologyKey: kubernetes.io/hostname
+1527
+  # -- DNS config for write pods
+1528
+  dnsConfig: {}
+1529
+  # -- Node selector for write pods
+1530
+  nodeSelector: {}
+1531
+  # -- Topology Spread Constraints for write pods
+1532
+  topologySpreadConstraints: []
+1533
+  # -- Tolerations for write pods
+1534
+  tolerations: []
+1535
+  # -- The default is to deploy all pods in parallel.
+1536
+  podManagementPolicy: "Parallel"
+1537
+  persistence:
+1538
+    # -- Enable volume claims in pod spec
+1539
+    volumeClaimsEnabled: true
+1540
+    # -- Parameters used for the `data` volume when volumeClaimEnabled if false
+1541
+    dataVolumeParameters:
+1542
+      emptyDir: {}
+1543
+    # -- Enable StatefulSetAutoDeletePVC feature
+1544
+    enableStatefulSetAutoDeletePVC: false
+1545
+    # -- Size of persistent disk
+1546
+    size: 10Gi
+1547
+    # -- Storage class to be used.
+1548
+    # If defined, storageClassName: <storageClass>.
+1549
+    # If set to "-", storageClassName: "", which disables dynamic provisioning.
+1550
+    # If empty or set to null, no storageClassName spec is
+1551
+    # set, choosing the default provisioner (gp2 on AWS, standard on GKE, AWS, and OpenStack).
+1552
+    storageClass: null
+1553
+    # -- Selector for persistent disk
+1554
+    selector: null
+1555
+    # -- Annotations for volume claim
+1556
+    annotations: {}
+1557
+# --  Configuration for the read pod(s)
+1558
+read:
+1559
+  # -- Number of replicas for the read
+1560
+  replicas: 0
+1561
+  autoscaling:
+1562
+    # -- Enable autoscaling for the read, this is only used if `queryIndex.enabled: true`
+1563
+    enabled: false
+1564
+    # -- Minimum autoscaling replicas for the read
+1565
+    minReplicas: 2
+1566
+    # -- Maximum autoscaling replicas for the read
+1567
+    maxReplicas: 6
+1568
+    # -- Target CPU utilisation percentage for the read
+1569
+    targetCPUUtilizationPercentage: 60
+1570
+    # -- Target memory utilisation percentage for the read
+1571
+    targetMemoryUtilizationPercentage:
+1572
+    # -- Behavior policies while scaling.
+1573
+    behavior: {}
+1574
+    #  scaleUp:
+1575
+    #   stabilizationWindowSeconds: 300
+1576
+    #   policies:
+1577
+    #   - type: Pods
+1578
+    #     value: 1
+1579
+    #     periodSeconds: 60
+1580
+    #  scaleDown:
+1581
+    #   stabilizationWindowSeconds: 300
+1582
+    #   policies:
+1583
+    #   - type: Pods
+1584
+    #     value: 1
+1585
+    #     periodSeconds: 180
+1586
+  image:
+1587
+    # -- The Docker registry for the read image. Overrides `loki.image.registry`
+1588
+    registry: null
+1589
+    # -- Docker image repository for the read image. Overrides `loki.image.repository`
+1590
+    repository: null
+1591
+    # -- Docker image tag for the read image. Overrides `loki.image.tag`
+1592
+    tag: null
+1593
+  # -- The name of the PriorityClass for read pods
+1594
+  priorityClassName: null
+

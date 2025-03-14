@@ -1,0 +1,20 @@
+apiVersion: apps.k8smgmt.io/v3
+kind: Workload
+metadata:
+  name: loki
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      chartName: loki
+      repository: lokihelm
+      valuesPaths:
+      - name: file://artifacts/loki/loki-values.yaml
+    options:
+      maxHistory: 10
+      timeout: 5m0s
+    type: Helm
+  namespace: tests
+  placement:
+    selector: rafay.dev/clusterName=vijayseks121220242
+  version: loki-v2-202503141519210000
