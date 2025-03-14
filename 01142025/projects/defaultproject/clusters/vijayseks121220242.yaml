@@ -7,7 +7,8 @@ metadata:
   project: defaultproject
 spec:
   blueprintConfig:
-    name: default
+    name: cost-minimal
+    version: v1
   cloudCredentials: vijaysrole
   config:
     addons:
@@ -15,40 +16,17 @@ spec:
       version: latest
     - name: kube-proxy
       version: latest
-    - configurationValues: '{"env":{"AWS_VPC_K8S_CNI_CUSTOM_NETWORK_CFG":"true","ENI_CONFIG_LABEL_DEF":"topology.kubernetes.io/zone"}}'
-      name: vpc-cni
-      version: latest
     - name: aws-ebs-csi-driver
       version: latest
     iam:
       withOIDC: true
-    managedNodeGroups:
-    - ami: ami-0f5f836a30cb455ec
-      desiredCapacity: 2
-      iam:
-        withAddonPolicies:
-          autoScaler: true
-          imageBuilder: true
-      instanceTypes:
-      - t3.xlarge
-      maxSize: 2
-      minSize: 2
-      name: al2023
-      overrideBootstrapCommand: |
-        [AmazonLinux2023]
-      privateNetworking: true
-      tags:
-        email: vijaysamanthapuri@rafay.co
-        env: cs-demo
-      volumeSize: 80
-      volumeType: gp3
     metadata:
       name: vijayseks121220242
       region: us-west-2
       tags:
         email: vijaysamanthapuri@rafay.co
         env: cs-demo
-      version: "1.29"
+      version: "1.30"
     network:
       cni:
         name: aws-cni
@@ -62,37 +40,7 @@ spec:
             - subnet: subnet-0d03a8d56fee019e4
     nodeGroups:
     - amiFamily: AmazonLinux2
-      desiredCapacity: 0
-      disableIMDSv1: false
-      disablePodIMDS: false
-      ebsOptimized: false
-      efaEnabled: false
-      enableDetailedMonitoring: false
-      instanceType: t3.xlarge
-      maxPodsPerNode: 50
-      maxSize: 10
-      minSize: 0
-      name: ng-2
-      privateNetworking: true
-      ssh:
-        allow: true
-        publicKeyName: awskey
-      subnets:
-      - subnet-01191eb45bbc20289
-      - subnet-0c2ace7c1bd6f389d
-      - subnet-0b5454e3766e256cf
-      tags:
-        email: vijaysamanthapuri@rafay.co
-        env: cs-demo
-        testtag: valuefromng
-      version: "1.29"
-      volumeEncrypted: false
-      volumeIOPS: 3000
-      volumeSize: 80
-      volumeThroughput: 125
-      volumeType: gp3
-    - amiFamily: AmazonLinux2
-      desiredCapacity: 10
+      desiredCapacity: 3
       iam:
         withAddonPolicies:
           autoScaler: true
@@ -112,6 +60,7 @@ spec:
       tags:
         email: vijaysamanthapuri@rafay.co
         env: cs-demo
+      version: "1.30"
       volumeSize: 80
       volumeType: gp3
     vpc:
@@ -127,4 +76,13 @@ spec:
             id: subnet-0c2ace7c1bd6f389d
           private-03:
             id: subnet-0b5454e3766e256cf
+  sharing:
+    enabled: true
+    projects:
+    - name: demos
+    - {}
+    - {}
+    - {}
+    - name: rafaylab
+    - name: system-catalog
   type: aws-eks
